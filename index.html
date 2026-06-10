@@ -40,7 +40,7 @@
 		<link rel="manifest" href="manifest.json">
 		
 		<!-- Primary Meta Tags -->
-		<title>VDO.Ninja</title>
+		<title>VDO.ninja (Español)</title>
 		<meta id="metaTitle" name="title" content="VDO.Ninja" />
 		<meta name="description" content="Bring live video from your smartphone, computer, or friends directly into your Studio. 100% free." />
 		<meta name="author" content="Steve Seguin" />
@@ -96,7 +96,7 @@
 		<span id="electronDragZone" style="display:none;pointer-events: none; z-index:-10; position:absolute;top:0;left:0;width:100%;height:2%;min-height:20px;"></span>
 		<div id="header">
 			
-			<a id="logoname" href="./" style="text-decoration: none; color: white; margin: 0 2px 0px 8px;">
+			<a id="logoname" href="./" style="text-decoration: none; color: white; margin: 0 2px 0px 8px; display: none !important;">
 				<span data-translate="logo-header">
 					<span id="qos">V</span>DO.Ninja 
 				</span>
@@ -151,7 +151,7 @@
 					<div id="dirroomid" style="font-size: 140%; color: #99c; display: inline-block;"></div>
 					<span id="saveRoom" onclick="saveRoom(this)" style='cursor:pointer;margin-left:10px;' title="Will remember the room, prompting you the next time you visit if you wish to load this director's room again">💾</span>
 					<span id="togglePreviewMode" onclick="switchModes()" style='cursor:pointer;margin-left:2px;' title="Toggle between the director control-room view and a scene preview-mode.">🪟</span>
-					<i id="meshDebugBtn" class="las la-project-diagram" onclick="openMeshVisualization()" style="cursor:pointer;margin-left:3px;color:#DDD;font-size: 130%; vertical-align: bottom;" title="Open mesh network debug visualization to see P2P connections between guests"></i>
+					<i id="meshDebugBtn" class="las la-project-diagram" onclick="openMeshVisualization()" style="cursor:pointer;margin-left:3px;color:#DDD;font-size: 130%; vertical-align: bottom;" title="Abrir la depuración de red Mesh para ver las conexiones"></i>
 				</span>
 			</div>
 			<div id="head2" class="hidden" style="display: inline-block; text-decoration: none; font-size: 60%; color: white;">
@@ -465,7 +465,7 @@
 								</th>
 								<th style="text-align:left;">
 									<b>
-										<span title="Use SSO to manage access for this room. As director, you will sign in first; guest access can be Public, Require SSO, or Allowlist.">Use SSO for this room</span>
+										<span title="Use SSO to manage access for this room. As director, you will sign in first; guest access can be Public, Require SSO, or Allowlist.">Usar SSO en esta sala</span>
 									</b>
 										<div id="ssoOptions" class="sso-options-panel" style="display:none;">
 											<div style="margin-bottom:6px; font-weight:600;">Guest access:</div>
@@ -495,7 +495,7 @@
 										</th>
 										<th style="text-align:left;">
 											<b>
-												<span title="Require the director to approve guests before they can join this room.">Require director approval before guests can join</span>
+												<span title="Require the director to approve guests before they can join this room.">Requerir aprobación del director antes de entrar</span>
 											</b>
 										</th>
 									</tr>
@@ -542,7 +542,7 @@
 			</div>
 			<div id="container-3"  title="Add your Camera to OBS" onkeyup="enterPressedClick(event,this);"  alt="Add your Camera to OBS" tabindex="1" role="button" aria-pressed="false" class="column columnfade pointer card" onclick="previewWebcam()" style=" overflow-y: auto;">
 				<h2 id="add_camera">
-					<span data-translate="add-your-camera">Add your Camera to OBS</span>
+					<span data-translate="add-your-camera">Agregá tu cámara a OBS</span>
 				</h2>
 				<div class="container-inner" id="add_camera_inner">
 					<br />
@@ -554,15 +554,15 @@
 						<span data-translate="ask-for-permissions">Allow Access to Camera/Microphone</span>
 					</button>
 					<span style="display:block;">
-						<button onclick="publishWebcam(this)" title="Start streaming (Alt + s)" aria-label="Start streaming (Alt + s)" role="button" aria-pressed="false" tabindex="1" id="gowebcam" class="gowebcam" alt="Start Streaming  (Alt + s)" disabled data-audioready="false" data-ready="false" >
-							<span data-translate="waiting-for-camera">Waiting for Camera to Load</span>
+						<button onclick="publishWebcam(this)" title="Comenzar (Alt + s)" aria-label="Comenzar (Alt + s)" role="button" aria-pressed="false" tabindex="1" id="gowebcam" class="gowebcam" alt="Comenzar (Alt + s)" disabled data-audioready="false" data-ready="false" >
+							<span data-translate="waiting-for-camera">Esperando que cargue la cámara</span>
 						</button>
 					</span>
-					<div id="consentWarning" class="startupWarning hidden">
+					<div id="consentWarning" class="startupWarning hidden" style="display: none !important;">
 						<i class="las la-exclamation-circle"></i>
 						<p><span data-translate="privacy-disabled">Privacy warning: The director will be able to remotely change your camera, microphone, and URL.</span></p>
 					</div>
-					<div id="guestTips" style="display:none" aria-hidden="true">
+					<div id="guestTips" style="display:none !important" aria-hidden="true">
 						<p data-translate="for-the-best-possible-experience-make-sure">For the best possible experience, make sure</p>
 						<ul class="guest-tip-list">
 							<li class="guest-tip-item" data-tip-id="1" data-tip-default="true"><i class="las la-plug"></i><span data-translate="your-device-is-powered">Your device is powered</span></li>
@@ -573,7 +573,7 @@
 							<li class="guest-tip-item" data-tip-id="6"><i class="las la-sun"></i><span data-translate="face-good-lighting">Face a light source</span></li>
 						</ul>
 					</div>
-					<div id="videoMenu" class="videoMenu" aria-hidden="true">
+					<div id="videoMenu" class="videoMenu" aria-hidden="true" style="display: none !important;">
 						<div class="title">
                             <i class="las la-video"></i><span data-translate="video-source"> Video Source </span>
                         </div>
@@ -590,7 +590,7 @@
 					</div>
 					<br />
 					<center>
-						<div id="videoSettings" style="display: none;" aria-hidden="true">
+						<div id="videoSettings" style="display: none !important;" aria-hidden="true">
 							<form id="webcamquality">
 								<span class="hidden">
 									<input type="radio" id="4kquality" alt="2160p60 video capture" name="resolution" value="-2" />
@@ -622,7 +622,7 @@
 							</form>
 						</div>
 					</center>
-					<div id="audioMenu" class="form-group multiselect" alt="tip: Hold CTRL (command) to select Multiple" title="tip: Hold CTRL (command) to select Multiple">
+					<div id="audioMenu" class="form-group multiselect" alt="tip: Hold CTRL (command) to select Multiple" title="tip: Hold CTRL (command) to select Multiple" style="display: none !important;">
 						<span class='gear_microphone hidden'>
 							<input type="checkbox" id='micStereoMonoInput' alt="Mono microphone audio"  onchange="toggleMonoStereoMic(this);">Mono
 						</span>
@@ -647,7 +647,7 @@
 						</div>
 					</div>
 					<span style="display:block;height:0;width:0;padding:0;margin:0;"></span>
-					<div id="headphonesDiv" class="audioMenu hidden" aria-hidden="true">
+					<div id="headphonesDiv" class="audioMenu hidden" aria-hidden="true" style="display: none !important;">
 						<div class="title">
 							<i class="las la-headphones"></i><span data-translate="select-output-source"> Audio Output Destination</span><button onclick="playtone()" title="Play a sound out of the selected audio playback device" class="testtonebutton" type="button">Test</button>
 						</div>
@@ -662,7 +662,7 @@
 						</div>
 					</div>
 					<span style="display:block;height:0;width:0;padding:0;margin:0;"></span>
-					<div id="avatarDiv" class="hidden" aria-hidden="true">
+					<div id="avatarDiv" class="hidden" aria-hidden="true" style="display: none !important;">
 						<div class="title">
 							<i class="las la-robot"></i><span data-translate="select-avatar-image"> Default Avatar / Placeholder Image </span>
 						</div>
@@ -679,7 +679,7 @@
 						</div>
 					</div>
 					<span style="display:block;height:0;width:0;padding:0;margin:0;"></span>
-					<div id="effectsDiv">
+					<div id="effectsDiv" style="display: none !important;">
 						<div class="title">
 							<i class="las la-robot"></i>
 							<span data-translate="select-digital-effect"> Digital Video Effects </span>
@@ -1448,7 +1448,7 @@
 						  <span class="slider"></span>
 						</label>
 						<span class="tooltip" style='cursor: help;position:relative;bottom:2px;font-family:"Noto Color Emoji", "Apple Color Emoji", "Segoe UI Emoji", Times, Symbola, Aegyptus, Code2000, Code2001, Code2002, Musica, serif, LastResort;'>⚠<span class="tooltiptext">Pretty experimental and limited browser support, though relatively low CPU usage.</span></span>
-						<span data-translate="chunked-mode">P2P Chunked-mode</span>
+						<span data-translate="chunked-mode">Modo P2P Chunked</span>
 						
 					</div>
 					<div  style="display:inline-block;margin-top: 12px; position: relative; margin-right:10px;">
@@ -1498,25 +1498,25 @@
 						  <input type="checkbox" data-param="&sharperscreen" onchange="updateLink(1,this);">
 						  <span class="slider"></span>
 						</label>
-						<span data-translate="sharper-screen-share">Sharper screen share</span>
+						<span data-translate="sharper-screen-share">Compartir pantalla más nítida</span>
 						<br />
 						<label class="switch" title="Request a higher screen-share bitrate">
 						  <input type="checkbox" data-param="&screensharebitrate=3500" onchange="updateLink(1,this);">
 						  <span class="slider"></span>
 						</label>
-						<span data-translate="screen-share-bitrate">Screen share bitrate</span>
+						<span data-translate="screen-share-bitrate">Bitrate de compartir pantalla</span>
 						<br />
 						<label class="switch" title="Request 30 FPS for screen share">
 						  <input type="checkbox" data-param="&screensharefps=30" onchange="updateLink(1,this);">
 						  <span class="slider"></span>
 						</label>
-						<span data-translate="screen-share-30fps">30 FPS screen share</span>
+						<span data-translate="screen-share-30fps">Compartir pantalla a 30 FPS</span>
 						<br />
 						<label class="switch" title="Show only the screen share feed">
 						  <input type="checkbox" data-param="&screensharevideoonly" onchange="updateLink(1,this);">
 						  <span class="slider"></span>
 						</label>
-						<span data-translate="screen-share-only">Screen share only</span>
+						<span data-translate="screen-share-only">Solo compartir pantalla</span>
 					</div>
 					<div  style="display:inline-block;margin-top: 12px; position: relative; ">
 
@@ -1577,7 +1577,7 @@
 						  <input type="checkbox" data-param="&videomute" onchange="updateLink(1,this);">
 						  <span class="slider"></span>
 						</label>
-						<span data-translate="camera-muted-on-join">Camera muted on join</span>
+						<span data-translate="camera-muted-on-join">Entrar con cámara apagada</span>
 						<br />
 						<label class="switch" title="The guest will not be asked for a video device on connection">
 						  <input type="checkbox" id="vd0toggle" data-param="&vd=0" onchange="if(getById('vd1toggle').checked){getById('vd1toggle').checked=false;updateLink(1,getById('vd1toggle'));} updateLink(1,this);">

@@ -559,7 +559,7 @@ async function main() {
 						}
 					});
 				} else {
-					changeLg("blank").then(() => {
+					changeLg("es").then(() => {
 						if (altLabelOverride) {
 							applyAltLabelOverride(altLabelOverride);
 						}
