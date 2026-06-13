@@ -599,6 +599,54 @@ async function main() {
 
 		//// translation stuff ends ////
 
+	// ======================================================
+	// VMIX COMPATIBILITY PATCH — White-Label Local Deploy
+	// Inyecta automáticamente los parámetros requeridos para
+	// vMix 28 Web Browser Input en sesiones de tipo viewer.
+	// Los parámetros manuales existentes nunca son sobreescritos,
+	// garantizando compatibilidad con IFB (&push= / &view=).
+	// ======================================================
+	(function injectVmixViewerParams() {
+		var isViewer = urlParams.has("view") || urlParams.has("v") ||
+		               urlParams.has("scene") || urlParams.has("scene2") ||
+		               urlParams.has("scene3") || urlParams.has("scene4") ||
+		               urlParams.has("scene5") || urlParams.has("scene6") ||
+		               urlParams.has("scene7") || urlParams.has("scene8");
+		if (!isViewer) return;
+
+		// H.264: decodificación por GPU Nvidia en vMix
+		if (!urlParams.has("codec") && !urlParams.has("vcodec")) {
+			urlParams.set("codec", "h264");
+		}
+		// Audio estéreo limpio: 128 kbps
+		if (!urlParams.has("audiobitrate") && !urlParams.has("ab")) {
+			urlParams.set("audiobitrate", "128");
+		}
+		// Desactivar cancelación de eco (audio pro para broadcast)
+		if (!urlParams.has("noap") && !urlParams.has("noisecancellation")) {
+			urlParams.set("noap", "");
+		}
+		// Buffer 200 ms para estabilidad ante microcortes de red
+		if (!urlParams.has("buffer") && !urlParams.has("buf")) {
+			urlParams.set("buffer", "200");
+		}
+		// cleanoutput: oculta toda la UI para captura limpia
+		if (!urlParams.has("cleanoutput") && !urlParams.has("clean")) {
+			urlParams.set("cleanoutput", "");
+		}
+		// autoplay: reproducción automática sin interacción del usuario
+		if (!urlParams.has("autoplay")) {
+			urlParams.set("autoplay", "");
+		}
+		// Actualizar URL del navegador (sin redirección)
+		try {
+			var newURL = window.location.pathname + "?" + urlParams.toString();
+			if (window.location.hash) newURL += window.location.hash;
+			window.history.replaceState(null, "", newURL);
+		} catch(e) {}
+	})();
+	// ======================================================
+
 	if (urlParams.has("cleanoutput") || urlParams.has("clean") || urlParams.has("cleanish")) {
 		session.cleanOutput = true;
 	}
